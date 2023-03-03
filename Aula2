@@ -1,0 +1,20 @@
+//Reajuste Salarial
+/*Utilizando node criar uma aplicação que recebe o salário, o reajuste e apresente o novo salário
+
+Passo a passo da aplicação:
+npm init
+npm i prompt-sync
+
+Ao enviar a solução compacte os arquivos index.js, package.json e package-lock.json*/
+
+const prompt = require('prompt-sync')()
+
+const salario = Number(prompt('Digite o salario atual: '))
+
+const reajuste = Number(prompt('Qual sera o reajuste (%): '))
+
+const salario_reajuste = salario * (1 + reajuste / 100)
+
+console.log(`\nSalario antes do reajuste: ${salario}`)
+console.log(`\nReajuste: ${reajuste}%`)
+console.log(`\nSalario apos o reajuste: ${salario_reajuste}`)
