@@ -1,0 +1,59 @@
+/*Criar um código com Node para realizar as operações básicas (soma, subtração, divisão e multiplicação)
+O projeto deve pedir a quantidade de valores que serão digitados
+O projeto vai solicitar qual operação será realizada
+Em seguida vai executar a operação com cada um deles
+No final deve apresentar o resultado*/
+
+
+const prompt = require("prompt-sync")()
+const print = console.log
+
+const quantidade = prompt("\nDigite a quantidade de valores que serao digitados: ")
+
+print(`\nOperacoes
+[+] Adicao
+[-] Subtracao
+[*] Multiplicacao
+[/] Divisao `)
+
+const opcao = prompt("\nDigite a operacao desejada: ")
+
+var result = Number(0)
+
+
+switch (opcao){
+    case '+':
+         for(let i = 0; i < quantidade; i++){
+            let numero = Number(prompt(`Digite o numero ${i+1}:`))
+            result += numero
+         }
+         break
+    case '-':
+         for(let i = 0; i < quantidade; i++){
+            let numero = Number(prompt(`Digite o numero ${i+1}:`))
+            result = result - numero
+         }
+         break
+    case '*':
+         for(let i = 0; i < quantidade; i++){
+            let numero = Number(prompt(`Digite o numero ${i+1}:`))
+            result = result * numero
+         }
+         break
+    case '/':
+         for(let i = 0; i < quantidade; i++){
+            let numero = Number(prompt(`Digite o numero ${i+1}:`))
+
+            if(numero==0){
+                print("Nao eh possivel dividir por zero")
+                let alternativo = Number(prompt(`Digite o numero novamente:`))
+                result = result / alternativo
+            }
+
+            result = result / numero
+         }
+         break
+    default: print("Voce digitou uma opcao invalida!")
+}
+
+print(`O resultado da operacao eh ${result}`)
