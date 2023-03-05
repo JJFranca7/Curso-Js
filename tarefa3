@@ -18,8 +18,7 @@ print(`\nOperacoes
 
 const opcao = prompt("\nDigite a operacao desejada: ")
 
-var result = Number(0)
-
+let result = Number(0)
 
 switch (opcao){
     case '+':
@@ -31,26 +30,27 @@ switch (opcao){
     case '-':
          for(let i = 0; i < quantidade; i++){
             let numero = Number(prompt(`Digite o numero ${i+1}:`))
-            result = result - numero
+            if(i===0) result = numero
+            else result -= numero
          }
          break
     case '*':
          for(let i = 0; i < quantidade; i++){
-            let numero = Number(prompt(`Digite o numero ${i+1}:`))
-            result = result * numero
+            var numero = Number(prompt(`Digite o numero ${i+1}:`))
+            if (i===0) result = numero
+            else result *= numero
          }
          break
     case '/':
          for(let i = 0; i < quantidade; i++){
             let numero = Number(prompt(`Digite o numero ${i+1}:`))
-
-            if(numero==0){
+            if(numero===0){
                 print("Nao eh possivel dividir por zero")
-                let alternativo = Number(prompt(`Digite o numero novamente:`))
-                result = result / alternativo
+                numero = Number(prompt(`Digite o numero novamente:`))
             }
-
-            result = result / numero
+            if (i===0) result = numero
+            else result /= numero
+            print(result)
          }
          break
     default: print("Voce digitou uma opcao invalida!")
