@@ -1,0 +1,34 @@
+/*Crie um código que vai ficar executando pedindo o nome do cliente (enquanto não digitar “” ele segue) 
+e que vai pedir uma lista de hobbies da pessoa (enquanto não digitar “” vai adicionar os hobbies). 
+No final escreva o nome da pessoa e seu hobbies no seguinte formato:
+Nome | Hobby 1, Hobby 2, …*/
+
+
+const prompt = require("prompt-sync")()
+const print = console.log
+
+const vetor_nome = [];
+const vetor_hobbies = [];
+const hobbies_nome = [];
+let hobby;
+let nome;
+
+while(true){
+   nome = prompt("Digite o nome do cliente (Para sair deixe em branco e tecle enter): ");
+   if(nome=="") break;
+
+   while(true){
+      hobby = prompt(`Digite os hobbies de ${nome} (Para sair deixe em branco e tecle enter): `)
+
+      if(hobby=="")break;
+      vetor_hobbies.push(hobby);
+}
+   vetor_nome.push(nome);
+   hobbies_nome.push(vetor_hobbies);
+} 
+
+for (let i = 0; i < vetor_nome.length; i++){
+   nome = vetor_nome[i];
+   const hobbies = hobbies_nome[i].join(", ");
+   print(`${nome} | ${hobbies}`);
+}
